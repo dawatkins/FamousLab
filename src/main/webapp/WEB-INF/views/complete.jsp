@@ -11,15 +11,26 @@
 </head>
 <body>
 	<a href="/"><button class="btn btn-primary">Tiny page</button></a>
-	<c:forEach items="${complete}" var="complete">
-		<ul>
-
-			<li>First Name: ${ complete.firstName }</li>
-			<li>Last Name: ${ complete.lastName }</li>
-			<li>Innovation: ${ complete.innovation }</li>
-			<li>Year: ${ complete.year }</li>
-
-		</ul>
-	</c:forEach>
+	<table class="table">
+	<h1>Inventions from Tiny List</h1>
+		<thead>
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Innovation</th>
+				<th>Year</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach var="complete" items="${complete}">
+				<tr>
+					<td>${complete.firstName}</td>
+					<td>${complete.lastName}</td>
+					<td>${complete.innovation}</td>
+					<td>${complete.year}</td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
 </body>
 </html>

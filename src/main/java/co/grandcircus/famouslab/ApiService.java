@@ -1,6 +1,9 @@
 package co.grandcircus.famouslab;
 
+import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpHeaders;
@@ -31,14 +34,21 @@ public class ApiService {
 		String url = "https://dwolverton.github.io/fe-demo/data/computer-science-hall-of-fame.json";
 		
 		Response response = restTemplate.getForObject(url, Response.class);
-		return response.getTiny();
+		List<Tiny> sorted = response.getTiny();
+		sorted.sort(Comparator.comparing(Tiny::getYear));
+		
+		return sorted;
 	}
 	
 	public List<Complete> showComplete(){
 		String url = "https://dwolverton.github.io/fe-demo/data/computer-science-hall-of-fame.json";
 		
 		Response response = restTemplate.getForObject(url, Response.class);
-		return response.getComplete();
+		
+		List<Complete> sorted = response.getComplete();
+		sorted.sort(Comparator.comparing(Complete::getYear));
+		
+		return sorted;
 	}
 	
 }

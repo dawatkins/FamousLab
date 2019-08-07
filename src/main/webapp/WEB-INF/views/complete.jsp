@@ -10,27 +10,29 @@
 	href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/spacelab/bootstrap.min.css" />
 </head>
 <body>
-	<a href="/"><button class="btn btn-primary">Tiny page</button></a>
-	<table class="table">
-	<h1>Inventions from Tiny List</h1>
-		<thead>
-			<tr>
-				<th>First Name</th>
-				<th>Last Name</th>
-				<th>Innovation</th>
-				<th>Year</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach var="complete" items="${complete}">
+	<div class="caintainer">
+		<a href="/"><button class="btn btn-primary">Tiny page</button></a>
+		<table class="table">
+			<h1>Inventions from Complete List</h1>
+			<thead>
 				<tr>
-					<td>${complete.firstName}</td>
-					<td>${complete.lastName}</td>
-					<td>${complete.innovation}</td>
-					<td>${complete.year}</td>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Innovation</th>
+					<th>Year</th>
 				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+			</thead>
+			<tbody>
+				<c:forEach var="complete" items="${complete}">
+					<tr>
+						<td>${complete.firstName}</td>
+						<td>${complete.lastName}</td>
+						<td>${complete.innovation}</td>
+						<td>${complete.year}</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
 </body>
 </html>
